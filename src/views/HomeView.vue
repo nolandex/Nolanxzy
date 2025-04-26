@@ -30,7 +30,7 @@ export default {
   name: 'HomeView',
   data() {
     return {
-      toRotate: ["Web Developer", "Full-stack Engineer", "Informatics Student", "Tech Enthusiast"],
+      toRotate: ["Web Developer", "Full-stack Engineer", "Informatics Student"],
       period: 2000,
       txt: '',
       loopNum: 0,
@@ -45,7 +45,6 @@ export default {
   methods: {
     tick() {
       let typewriter = this.$refs.typewriter;
-
       if (!typewriter) return;
 
       let i = this.loopNum % this.toRotate.length;
@@ -74,7 +73,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 body {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -85,9 +84,7 @@ body {
 }
 
 .wave {
-  animation-name: wave-animation;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
+  animation: wave-animation 2.5s infinite;
   transform-origin: 70% 70%;
   display: inline-block;
 }
@@ -103,78 +100,46 @@ body {
   to  { transform: rotate(0deg); }
 }
 
+/* Lebih simple glowing */
 .pict {
-  box-shadow: 0 0 20px 5px rgba(255, 219, 112, 0.5),
-              0 0 40px 10px rgba(255, 219, 112, 0.3),
-              0 0 60px 15px rgba(255, 219, 112, 0.2);
-  -webkit-box-shadow: 0 0 20px 5px rgba(255, 219, 112, 0.5),
-                      0 0 40px 10px rgba(255, 219, 112, 0.3),
-                      0 0 60px 15px rgba(255, 219, 112, 0.2);
-  -moz-box-shadow: 0 0 20px 5px rgba(255, 219, 112, 0.5),
-                   0 0 40px 10px rgba(255, 219, 112, 0.3),
-                   0 0 60px 15px rgba(255, 219, 112, 0.2);
-  transition: all 0.5s ease-in-out;
-  animation: glow 2s infinite alternate;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+  transition: all 0.3s ease-in-out;
 }
 
-@keyframes glow {
-  from {
-    box-shadow: 0 0 10px 2px rgba(255, 219, 112, 0.4),
-                0 0 20px 5px rgba(255, 219, 112, 0.2);
-  }
-  to {
-    box-shadow: 0 0 30px 10px rgba(255, 219, 112, 0.7),
-                0 0 60px 20px rgba(255, 219, 112, 0.5);
-  }
+.pict:hover {
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.6);
 }
 
 .fadein-up {
   opacity: 0;
-  animation-name: fadeInUp;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  animation-delay: 500ms;
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.4s;
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translate3d(0, 100%, 0); }
-  to { opacity: 1; transform: translate3d(0, 0, 0); }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .fade-in-from-left {
   opacity: 0;
-  animation: fadeInLeft 0.5s ease-out forwards;
-  animation-delay: 500ms;
+  animation: fadeInLeft 0.6s ease-out forwards;
+  animation-delay: 0.6s;
 }
 
 @keyframes fadeInLeft {
-  0% { opacity: 0; transform: translateX(-100%); }
+  0% { opacity: 0; transform: translateX(-30px); }
   100% { opacity: 1; transform: translateX(0); }
 }
 
 .fadein-right {
   opacity: 0;
-  animation: fadeInRight 0.5s ease-out forwards;
-  animation-delay: 500ms;
+  animation: fadeInRight 0.6s ease-out forwards;
+  animation-delay: 0.6s;
 }
 
 @keyframes fadeInRight {
-  0% { opacity: 0; transform: translateX(100%); }
+  0% { opacity: 0; transform: translateX(30px); }
   100% { opacity: 1; transform: translateX(0); }
 }
-
-.fadein-bot {
-  opacity: 0;
-  animation: fadeInBot 0.5s forwards;
-}
-
-@keyframes fadeInBot {
-  from { opacity: 0; transform: translate3d(0, -100%, 0); }
-  to { opacity: 1; transform: translate3d(0, 0, 0); }
-}
-
-.fadein-1 { animation-delay: 200ms; }
-.fadein-2 { animation-delay: 400ms; }
-.fadein-3 { animation-delay: 600ms; }
-.fade-500 { animation-delay: 500ms; }
 </style>
