@@ -15,7 +15,6 @@
       <br>
     </div>
 
-    <!-- HERO IMAGE -->
     <div class="flex justify-center md:justify-start fadein-right">
       <img
         alt="avatar"
@@ -25,16 +24,13 @@
         decoding="async"
         data-nimg="1"
         class="w-10/12 md:h-auto rounded-full border-4 border-amber-200 pict"
-        :src="avatar"
+        src="/assets/images/avatar.jpg"
       />
     </div>
   </main>
 </template>
 
 <script>
-// Import gambar dari folder assets
-import avatar from '@/assets/images/avatar.jpg'; // (pastikan gambar ada di src/assets/images/avatar.jpg)
-
 export default {
   name: 'HomeView',
   data() {
@@ -44,7 +40,6 @@ export default {
       txt: '',
       loopNum: 0,
       isDeleting: false,
-      avatar, // Binding avatar ke template
     };
   },
   mounted() {
@@ -91,7 +86,6 @@ export default {
 </script>
 
 <style>
-/* CSS kamu tetap sama */
 body {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -106,18 +100,18 @@ body {
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
   transform-origin: 70% 70%;
-  display: inline-block
+  display: inline-block;
 }
 
 @keyframes wave-animation {
-  0% { transform: rotate(0deg) }
-  10% { transform: rotate(14deg) }
-  20% { transform: rotate(-8deg) }
-  30% { transform: rotate(14deg) }
-  40% { transform: rotate(-4deg) }
-  50% { transform: rotate(10deg) }
-  60% { transform: rotate(0deg) }
-  to { transform: rotate(0deg) }
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  to { transform: rotate(0deg); }
 }
 
 .pict {
@@ -173,14 +167,8 @@ body {
 }
 
 @keyframes fadeInBot {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+  from { opacity: 0; transform: translate3d(0, -100%, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
 .fadein-1 { animation-delay: 200ms; }
